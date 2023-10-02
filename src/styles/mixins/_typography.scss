@@ -1,0 +1,25 @@
+@mixin heading-L {
+  font-family: 'Outfit-Light';
+  font-size: 32px;
+}
+
+@mixin heading-M {
+  font-family: 'Outfit-Light';
+  font-size: 24px;
+}
+@mixin heading-S {
+  font-family: 'Outfit-Medium';
+  font-size: 24px;
+}
+@mixin heading-XS {
+  font-family: 'Outfit-Medium';
+  font-size: 18px;
+}
+@mixin body-M {
+  font-family: 'Outfit-Light';
+  font-size: 15px;
+}
+@mixin body-S {
+  font-family: 'Outfit-Light';
+  font-size: 13px;
+}
