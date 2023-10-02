@@ -16,9 +16,8 @@ export const Trending = () => {
       (movie) => movie.isTrending && movie.thumbnail && movie.thumbnail.trending
     );
 
-  console.log(trendingMovies.length);
   const chunkedMovies = [];
-  for (let i = 0; i < trendingMovies.length - 2; i++) {
+  for (let i = 0; i < trendingMovies.length - 2; i += 2) {
     chunkedMovies.push(trendingMovies.slice(i, i + 3));
   }
 
@@ -26,7 +25,7 @@ export const Trending = () => {
     <div>
       <Title text="Trending" />
 
-      <Carousel className="trendingContainer" interval={null}>
+      <Carousel className="trendingContainer">
         {chunkedMovies.map((movieChunk, index) => (
           <Carousel.Item key={index}>
             <div className="movieChunk">

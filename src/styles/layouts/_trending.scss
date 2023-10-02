@@ -25,7 +25,7 @@
       position: absolute;
       bottom: 0.5rem;
       left: 1rem;
-      width: 50%;
+      width: 60%;
       z-index: 2;
     }
     &--bookmark {
@@ -76,15 +76,14 @@
 }
 
 .trendingContainer {
-  color: $white;
-  overflow: hidden;
-  width: calc(2.5 * 470px);
+  overflow: hidden; /* Hide the overflowing part of the third card */
 }
 
 .trendingContainer .movieChunk {
   display: flex;
+  width: 250%;
 }
 
 .trendingContainer .carousel-item {
-  transition: transform 1.6s ease;
+  transition: transform 0.6s ease;
 }

@@ -1,0 +1,29 @@
+.smallerCard {
+  width: 280px;
+  height: 226px;
+  color: $white;
+
+  &-img-container {
+    background-color: $navy;
+    height: 75%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 12px;
+    margin-bottom: 0.5rem;
+  }
+
+  &-title {
+    color: $white;
+    @include heading-XS;
+    margin: 0.5rem 0;
+  }
+
+  &__text {
+    @include body-S;
+  }
+}
+
+.container-row {
+  width: 95%;
+}
