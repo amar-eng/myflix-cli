@@ -1,0 +1,23 @@
+.search-container {
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+
+  &-input {
+    width: 80%;
+    @include heading-M;
+    background-color: transparent;
+    color: $white;
+    border: 1px solid transparent;
+    outline: none;
+    &:focus {
+      border-bottom: 1px solid $white;
+      outline: none;
+      caret-color: $orange;
+    }
+  }
+
+  &-icon {
+    margin-right: 1rem;
+  }
+}

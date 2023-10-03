@@ -2,6 +2,7 @@
   width: 280px;
   height: 226px;
   color: $white;
+  position: relative;
 
   &-img-container {
     background-color: $navy;
@@ -21,6 +22,31 @@
 
   &__text {
     @include body-S;
+  }
+
+  &--bookmark {
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.4);
+    background-image: url(../../assets/icon-bookmark-empty.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &:hover {
+      background-image: url(../../assets/icon-bookmark-full.svg);
+      // background-color: white;
+      fill: $black !important;
+      color: black;
+    }
   }
 }
 

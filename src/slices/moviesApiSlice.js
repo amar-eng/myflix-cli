@@ -4,9 +4,9 @@ import { apiSlice } from './apiSlice';
 export const moviesApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getMovies: builder.query({
-      query: () => {
+      query: (searchQuery) => {
         return {
-          url: MOVIES_URL,
+          url: searchQuery ? `${MOVIES_URL}?search=${searchQuery}` : MOVIES_URL,
         };
       },
     }),
