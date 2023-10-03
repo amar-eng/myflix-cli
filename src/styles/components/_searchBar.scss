@@ -4,8 +4,8 @@
   align-items: center;
 
   &-input {
-    width: 80%;
-    @include heading-M;
+    width: 100%;
+    @include body-L;
     background-color: transparent;
     color: $white;
     border: 1px solid transparent;
@@ -15,9 +15,21 @@
       outline: none;
       caret-color: $orange;
     }
+
+    @include tablet {
+      width: 90%;
+      @include heading-M;
+    }
+
+    @include desktop {
+      width: 80%;
+    }
   }
 
   &-icon {
-    margin-right: 1rem;
+    margin-right: 0.25rem;
+    @include tablet {
+      margin-right: 1rem;
+    }
   }
 }

@@ -17,9 +17,19 @@
 }
 @mixin body-M {
   font-family: 'Outfit-Light';
-  font-size: 15px;
+  font-size: 16px;
 }
 @mixin body-S {
   font-family: 'Outfit-Light';
   font-size: 13px;
+}
+
+@mixin body-L {
+  font-family: 'Outfit-Light';
+  font-size: 18px;
+}
+
+@mixin body-XS {
+  font-family: 'Outfit-Light';
+  font-size: 10px;
 }

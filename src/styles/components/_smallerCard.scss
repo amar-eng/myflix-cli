@@ -1,18 +1,20 @@
 .smallerCard {
-  width: 280px;
-  height: 226px;
+  height: 154px;
   color: $white;
   position: relative;
   cursor: pointer;
 
   @include tablet {
-    width: 250px;
-    height: 192px;
+    height: 140px;
+  }
+  @include desktop {
+    width: 280px;
+    height: 226px;
   }
 
   &-img-container {
     background-color: $navy;
-    height: 75%;
+    height: 70%;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -29,10 +31,15 @@
     color: $white;
     @include heading-XS;
     margin: 0.5rem 0;
+    margin-bottom: 15rem;
   }
 
   &__text {
-    @include body-S;
+    @include body-XS;
+
+    @include tablet {
+      @include body-S;
+    }
   }
 
   &--bookmark {
@@ -88,10 +95,15 @@
       transform: translate(-50%, -50%) scale(1);
     }
   }
+
+  &__content {
+    display: flex;
+    align-items: center;
+  }
 }
 
 .container-row {
-  width: 95%;
+  width: 100%;
   @include tablet {
     width: 100%;
   }

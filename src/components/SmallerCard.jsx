@@ -33,8 +33,8 @@ export const SmallerCard = ({
       setIsMovieBookmarked(newBookmarkStatus);
 
       !isMovieBookmarked
-        ? notifySuccess('Your selection is bookmarked')
-        : notifySuccess('Your selection is removed from the bookmarked list');
+        ? notifySuccess(` You saved ${title} for later`)
+        : notifySuccess(`${title} is removed from the bookmarked list`);
     } catch (error) {
       notifySuccess('Failed to update bookmark status:', error);
     }
@@ -63,26 +63,28 @@ export const SmallerCard = ({
         ></div>
       </div>
       <Row className="d-flex align-items-center container-row">
-        <Col className="smallerCard__text " md={2}>
+        <Col className="smallerCard__text " xs={2}>
           {year}
         </Col>
-        <Col md={1}>
+        <Col xs={1}>
           <div className="trendingContainer__point"></div>
         </Col>
-        <Col md={5}>
-          <div className="trendingContainer__content">
+        <Col xs={4}>
+          <div className="smallerCard__content">
             <img
               src={category === 'Movie' ? iconMovie : iconTv}
               alt="movie"
               className="trendingContainer__icon"
             />
-            <div className="smallerCard__text">{category}</div>
+            <div className="smallerCard__text">
+              {category === 'TV Series' ? 'Series' : category}
+            </div>
           </div>
         </Col>
-        <Col md={1}>
+        <Col xs={1}>
           <div className="trendingContainer__point"></div>
         </Col>
-        <Col className="smallerCard__text" md={2}>
+        <Col className="smallerCard__text" xs={2}>
           {rating}
         </Col>
       </Row>

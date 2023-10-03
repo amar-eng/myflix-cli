@@ -9,11 +9,10 @@ export const MoviesPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const { data: movieList, isLoading, isError } = useGetMoviesQuery();
-  // First, filter the movieList to get only items with category 'movie'
+
   const allMovies =
     movieList?.filter((movie) => movie.category === 'Movie') || [];
 
-  // Then, if there's a searchQuery, filter the allMovies list based on the title
   const filteredMovies = searchQuery
     ? allMovies.filter((movie) =>
         movie.title.toLowerCase().includes(searchQuery.toLowerCase())
@@ -24,7 +23,6 @@ export const MoviesPage = () => {
     setSearchQuery(query);
   };
 
-  console.log(filteredMovies);
   return (
     <div>
       <SearchBar onSearch={handleSearch} text="Search for Movies" />
@@ -36,9 +34,9 @@ export const MoviesPage = () => {
       ) : searchQuery ? (
         <div>
           <Title length={filteredMovies.length} searchQuery={searchQuery} />
-          <Row className="mb-4 mx-4">
+          <Row xs={1} sm={6} md={2} lg={3} xl={4} className="mb-4 mx-1">
             {filteredMovies.map((movie) => (
-              <Col md={3} key={movie.id} className="mb-4 ">
+              <Col xs={6} sm={4} md={3} key={movie.id} className="mb-4">
                 <SmallerCard {...movie} />
               </Col>
             ))}
@@ -47,9 +45,9 @@ export const MoviesPage = () => {
       ) : (
         <div>
           <Title text="Movies" />
-          <Row className="mb-4 mx-4">
+          <Row xs={1} sm={6} md={2} lg={3} xl={4} className="mb-4 mx-1">
             {allMovies.map((movie) => (
-              <Col md={3} key={movie.id} className="mb-4 ">
+              <Col xs={6} sm={4} md={3} key={movie.id} className="mb-4">
                 <SmallerCard {...movie} />
               </Col>
             ))}

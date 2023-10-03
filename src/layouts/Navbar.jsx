@@ -32,7 +32,7 @@ export const Navbar = () => {
       <Col xs={1}>
         <img src={logo} alt="logo" />
       </Col>
-      <Col xs={3} className="navbar__img-container">
+      <Col xs={6} sm={3} className="navbar__img-container">
         {navItems.map((item) => (
           <LinkContainer
             key={item.to}
@@ -43,7 +43,7 @@ export const Navbar = () => {
           </LinkContainer>
         ))}
       </Col>
-      <Col xs={1} className=" d-flex align-items-center justify-content-center">
+      <Col xs={2} className=" d-flex align-items-center justify-content-center">
         <div className="navbar__icon">AM</div>
       </Col>
     </Row>

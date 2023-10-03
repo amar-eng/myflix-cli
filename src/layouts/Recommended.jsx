@@ -16,9 +16,9 @@ export const Recommended = () => {
   return (
     <div>
       <Title text="Recommended for you" />
-      <Row className="d-flex align-items-center mx-1">
+      <Row xs={1} sm={6} md={2} lg={3} xl={4} className="mb-4 mx-1">
         {recommendedMovies.map((movie, index) => (
-          <Col xs={6} sm={4} lg={3} key={movie.id} className="mb-5">
+          <Col xs={6} sm={4} md={3} key={movie.id} className="mb-4">
             <SmallerCard {...movie} />
           </Col>
         ))}

@@ -34,9 +34,9 @@ export const Bookmarked = () => {
       ) : searchQuery ? (
         <div>
           <Title length={filteredMovies.length} searchQuery={searchQuery} />
-          <Row className="mb-4 mx-4">
+          <Row xs={1} sm={6} md={2} lg={3} xl={4} className="mb-4 mx-1">
             {filteredMovies.map((movie) => (
-              <Col md={3} key={movie.id} className="mb-4 ">
+              <Col xs={6} sm={4} md={3} key={movie.id} className="mb-4">
                 <SmallerCard {...movie} />
               </Col>
             ))}
@@ -46,11 +46,11 @@ export const Bookmarked = () => {
         <>
           <div>
             <Title text="Bookmarked Movies" />
-            <Row className="mb-4 mx-4">
+            <Row xs={1} sm={6} md={2} lg={3} xl={4} className="mb-4 mx-1">
               {allMovies
                 .filter((movie) => movie.category === 'Movie')
                 .map((movie) => (
-                  <Col md={3} key={movie.id} className="mb-4 ">
+                  <Col xs={6} sm={4} md={3} key={movie.id} className="mb-4">
                     <SmallerCard {...movie} />
                   </Col>
                 ))}
@@ -59,11 +59,11 @@ export const Bookmarked = () => {
 
           <div>
             <Title text="Bookmarked TV-Series" />
-            <Row className="mb-4 mx-4">
+            <Row xs={1} sm={6} md={2} lg={3} xl={4} className="mb-4 mx-1">
               {allMovies
                 .filter((movie) => movie.category !== 'Movie')
                 .map((movie) => (
-                  <Col md={3} key={movie.id} className="mb-4 ">
+                  <Col xs={6} sm={4} md={3} key={movie.id} className="mb-4">
                     <SmallerCard {...movie} />
                   </Col>
                 ))}

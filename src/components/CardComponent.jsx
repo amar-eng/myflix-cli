@@ -1,7 +1,15 @@
-import React from 'react';
-import { bookmarkEmpty, iconMovie, iconTv, play } from '../utils/Lists';
+import React, { useState } from 'react';
+import {
+  bookmarkEmpty,
+  bookmarkFull,
+  iconMovie,
+  iconTv,
+  play,
+} from '../utils/Lists';
 import { Col, Row } from 'react-bootstrap';
 import { BASE_URL } from '../constants';
+import { notifySuccess } from './notification';
+import { useUpdateMovieMutation } from '../slices/moviesApiSlice';
 export const CardComponent = ({
   id,
   year,
@@ -9,7 +17,26 @@ export const CardComponent = ({
   rating,
   category,
   title,
+  isBookmarked,
 }) => {
+  const [isMovieBookmarked, setIsMovieBookmarked] = useState(isBookmarked);
+  const [updateMovie] = useUpdateMovieMutation();
+
+  const handleBookmarkToggle = async () => {
+    const newBookmarkStatus = !isMovieBookmarked;
+
+    try {
+      await updateMovie({ id: id, isBookmarked: newBookmarkStatus });
+
+      setIsMovieBookmarked(newBookmarkStatus);
+
+      !isMovieBookmarked
+        ? notifySuccess(`${title} is saved for later`)
+        : notifySuccess(`${title} is removed from the bookmarked list`);
+    } catch (error) {
+      notifySuccess('Failed to update bookmark status:', error);
+    }
+  };
   return (
     <div
       key={id}
@@ -18,8 +45,14 @@ export const CardComponent = ({
         backgroundImage: `url(${BASE_URL}/${thumbnail.trending.large})`,
       }}
     >
-      <div className="trendingContainer__card--bookmark">
-        <img src={bookmarkEmpty} alt="bookmark-empty" />
+      <div
+        className="trendingContainer__card--bookmark"
+        onClick={handleBookmarkToggle}
+      >
+        <img
+          src={isMovieBookmarked ? bookmarkFull : bookmarkEmpty}
+          alt="bookmark"
+        />
       </div>
       <div className="trendingContainer__card--info">
         <Row md={6} className="d-flex align-items-center">
