@@ -7,7 +7,14 @@ export const App = () => {
     <>
       <div>
         <Navbar />
-        <ToastContainer />
+        <ToastContainer
+          toastStyle={{
+            backgroundColor: '#dff2f9',
+            color: '#fc4747',
+            fontFamily: 'Outfit-light',
+            fontSize: '14px',
+          }}
+        />
         <main>
           <Outlet />
         </main>

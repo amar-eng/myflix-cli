@@ -7,3 +7,11 @@
 body {
   background-color: $black;
 }
+
+.toastify-progress-custom {
+  background: #fc4747 !important;
+}
+
+.Toastify__close-button.Toastify__close-button--colored {
+  color: #fc4747 !important;
+}

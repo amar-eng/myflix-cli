@@ -85,7 +85,7 @@
 
   .smallerCard-img-container:hover {
     & .smallerCard--play {
-      transform: translate(-50%, -50%) scale(1); // Scale up on hover
+      transform: translate(-50%, -50%) scale(1);
     }
   }
 }

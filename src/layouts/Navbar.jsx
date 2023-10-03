@@ -34,7 +34,11 @@ export const Navbar = () => {
       </Col>
       <Col xs={3} className="navbar__img-container">
         {navItems.map((item) => (
-          <LinkContainer key={item.to} to={item.to}>
+          <LinkContainer
+            key={item.to}
+            to={item.to}
+            style={{ cursor: 'pointer' }}
+          >
             <img src={item.src} alt={item.alt} className="nabar__img" />
           </LinkContainer>
         ))}

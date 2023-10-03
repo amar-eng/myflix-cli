@@ -8,8 +8,8 @@ import {
   play,
 } from '../utils/Lists';
 import { BASE_URL } from '../constants';
-import { useUpdateMovieMutation } from '../slices/moviesApiSlice'; // Import the mutation hook
-import { toast } from 'react-toastify';
+import { useUpdateMovieMutation } from '../slices/moviesApiSlice';
+import { notifySuccess } from './notification';
 
 export const SmallerCard = ({
   id,
@@ -22,22 +22,21 @@ export const SmallerCard = ({
 }) => {
   const [isMovieBookmarked, setIsMovieBookmarked] = useState(isBookmarked);
 
-  // Mutation hook to update movie
   const [updateMovie] = useUpdateMovieMutation();
 
   const handleBookmarkToggle = async () => {
     const newBookmarkStatus = !isMovieBookmarked;
 
     try {
-      // Update the backend
       await updateMovie({ id: id, isBookmarked: newBookmarkStatus });
 
-      // If successful, update local state
       setIsMovieBookmarked(newBookmarkStatus);
-      toast.success('Updated');
+
+      !isMovieBookmarked
+        ? notifySuccess('Your selection is bookmarked')
+        : notifySuccess('Your selection is removed from the bookmarked list');
     } catch (error) {
-      console.error('Failed to update bookmark status:', error);
-      // Handle or display the error to the user as needed
+      notifySuccess('Failed to update bookmark status:', error);
     }
   };
 
