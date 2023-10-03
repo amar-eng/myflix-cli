@@ -3,6 +3,12 @@
   height: 226px;
   color: $white;
   position: relative;
+  cursor: pointer;
+
+  @include tablet {
+    width: 250px;
+    height: 192px;
+  }
 
   &-img-container {
     background-color: $navy;
@@ -12,6 +18,11 @@
     background-repeat: no-repeat;
     border-radius: 12px;
     margin-bottom: 0.5rem;
+    position: relative;
+    cursor: pointer;
+    &:hover > &--play {
+      transform: translate(-50%, -50%) scale(1);
+    }
   }
 
   &-title {
@@ -43,13 +54,45 @@
 
     &:hover {
       background-image: url(../../assets/icon-bookmark-full.svg);
-      // background-color: white;
       fill: $black !important;
-      color: black;
+    }
+  }
+
+  &--play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    transition: transform 0.4s ease-in-out;
+
+    img {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+
+    span {
+      color: $white;
+      @include body-M;
+    }
+  }
+
+  .smallerCard-img-container:hover {
+    & .smallerCard--play {
+      transform: translate(-50%, -50%) scale(1); // Scale up on hover
     }
   }
 }
 
 .container-row {
   width: 95%;
+  @include tablet {
+    width: 100%;
+  }
 }

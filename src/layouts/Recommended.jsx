@@ -13,26 +13,16 @@ export const Recommended = () => {
   const recommendedMovies =
     movies && movies.filter((movie) => movie.isTrending === false);
 
-  const chunkedMovies = [];
-  for (let i = 0; i < recommendedMovies.length; i += 4) {
-    chunkedMovies.push(recommendedMovies.slice(i, i + 4));
-  }
-
   return (
     <div>
       <Title text="Recommended for you" />
-      {chunkedMovies.map((chunk, index) => (
-        <Row
-          key={index}
-          className="mb-4 d-flex align-items-center justify-content-center mx-4"
-        >
-          {chunk.map((movie) => (
-            <Col md={3} key={movie.id}>
-              <SmallerCard {...movie} />
-            </Col>
-          ))}
-        </Row>
-      ))}
+      <Row className="d-flex align-items-center mx-1">
+        {recommendedMovies.map((movie, index) => (
+          <Col xs={6} sm={4} lg={3} key={movie.id} className="mb-4">
+            <SmallerCard {...movie} />
+          </Col>
+        ))}
+      </Row>
     </div>
   );
 };

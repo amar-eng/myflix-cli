@@ -1,0 +1,23 @@
+.navbar {
+  background-color: $navy;
+  border-radius: 15px;
+  margin: 1rem;
+  height: 60px;
+
+  &__img-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__icon {
+    background-color: $orange;
+    color: $black;
+    @include body-S;
+    padding: 0.5rem;
+    border-radius: 100%;
+  }
+  &__img {
+    cursor: pointer;
+  }
+}

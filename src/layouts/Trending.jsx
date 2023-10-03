@@ -25,7 +25,7 @@ export const Trending = () => {
     <div>
       <Title text="Trending" />
 
-      <Carousel className="trendingContainer">
+      <Carousel className="trendingContainer" interval={null}>
         {chunkedMovies.map((movieChunk, index) => (
           <Carousel.Item key={index}>
             <div className="movieChunk">

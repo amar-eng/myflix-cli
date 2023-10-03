@@ -1,5 +1,5 @@
 import React from 'react';
-import { bookmarkEmpty, iconMovie, iconTv } from '../utils/Lists';
+import { bookmarkEmpty, iconMovie, iconTv, play } from '../utils/Lists';
 import { Col, Row } from 'react-bootstrap';
 import { BASE_URL } from '../constants';
 export const CardComponent = ({
@@ -49,6 +49,11 @@ export const CardComponent = ({
         </Row>
 
         <p className="trendingContainer__title">{title}</p>
+      </div>
+
+      <div className="trendingContainer__card--play">
+        <img src={play} alt="Play" />
+        <span>Play</span>
       </div>
     </div>
   );

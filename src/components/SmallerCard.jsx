@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
-import { iconMovie, bookmarkEmpty, iconTv, bookmarkFull } from '../utils/Lists';
+import {
+  iconMovie,
+  bookmarkEmpty,
+  iconTv,
+  bookmarkFull,
+  play,
+} from '../utils/Lists';
 import { BASE_URL } from '../constants';
 import { useUpdateMovieMutation } from '../slices/moviesApiSlice'; // Import the mutation hook
 import { toast } from 'react-toastify';
@@ -43,6 +49,10 @@ export const SmallerCard = ({
           backgroundImage: `url(${BASE_URL}/${thumbnail.regular.small})`,
         }}
       >
+        <div className="smallerCard--play">
+          <img src={play} alt="Play" />
+          <span>Play</span>
+        </div>
         <div
           className="smallerCard--bookmark"
           style={{
